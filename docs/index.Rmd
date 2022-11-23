@@ -1,45 +1,51 @@
 ---
-title: "Your A4 Report Title (TODO: Revise title)"
-author: "Your Name"
+title: "Analyzing Trends of Inequality Within the American Incarceration System"
+author: "Joshua Taylor"
 date: '2022-11-01'
 output: html_document
 ---
 
-```{r echo=FALSE, eval=TRUE, message=FALSE}
+```{r echo=FALSE, message=FALSE, results='hide', include = FALSE}
 source("../source/a4-helpers.R")
 source("../source/analysis.R")
 ```
 
 ## Abstract 
-[TODO: Include a short abstract (about 50 words)]
-
-# Test (TODO: Remove before submission!!)
-```{r echo=FALSE}
-q1_string <- test_query1()
-num <- 5
-```
-As you know, this is a markdown report. The [R Markdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) is **useful!**
-
-* Here's a test of a dynamic variable. Say **"`r q1_string`!!!** 
-* Here's another test. A vector
-of numbers: `r test_query2(num)`.
-
-Recall that _{r echo=TRUE}_ can be used to display the code, 
-which is very useful when developing and debugging a report. Here's an example: 
-
-```{r echo=TRUE}
-num <- 5
-sum <- sum(test_query2(num))
-print(sum)
-```
+  The American incarceration system has long displayed trends of inequality, especially when comparing minority groups to the white population. This research is meant to address the ways in which systemic racism has effected trends in incarceration. This paper is aimed to address these trends with fresh visualizations that make these trends easily understandable, to help communicate the effects of systemic racism.  
 
 ## Introduction 
-[TODO]
+  The usage of data can either be used to aid equality, or aid inequality. Data that targets minority groups and labels them aids inequality. That type of data leads to prejudices in people that create systemic systems of injustice. This is widely seen in the American incarceration system. For years, stereotypes of mainly blacks and hispanics have been used to racially profile, persecute and incarcerate these communities of people. Often times racist groups quote statistics such as "13 percent of the population 52 percent of the crime" to justify racial profiling and racial prejudice. Often times, this data is obtained maliciously with disturbing intent. 
+  The stakeholders involved in my research are minority communities seeking justice for this systemic persecution and those in the justice system hoping to make the system progress towards equality. Furthermore, politicians who use these statistics to justify policies and ways of thinking. Indirect stakeholders would be the American people, whose lives are shaped by the systems and how people push and shove against these systems. 
+  The questions my research are aimed to answer involve finding trends of inequality in the jail system. Firstly, the research aims to answer "To what extent has the prison population increased over time". Secondly, the research aims to answer "To what extent is the white jailed population disproportionate to the white total population compared to other ethnicities". And lastly, the research aims to answer "To what extent does ethnicity play in the percentage of an ethnic groups population that has been incarcerated". 
 
 ## Data Summary 
-[TODO]
+  To find patterns of inequality certain key values had to be analyzed. Firstly, the difference between the amount of incarcerated white men, and black men in urban areas. It was found that there were 1.42 times the amount of white people incarcerated than black people across small urban counties since 1995. The importance of the value lies in the next statistic however, because there are 6.89 times the amount of white people on average in each county. There is a large disparity between the two metrics, which is a clear sign on how blacks are incarcerated at a far higher rate than whites. The data also reveals a similar statistics among latinx communities. There are roughly 5.29 times the amount of white people living in small urban areas than latinx people, however white people are only incarcerated at 2.79 times the rate as latinx communities. These values clearly show inequity between the rates at which white people are incarcerated and minorities. When the data is examined in proportion to the percent of the population each race takes up, patterns of inequality start to be clearly seen. 
+  
+## Total Population Trends
+```{r, echo=FALSE, message=FALSE, results='hide', fig.cap =  "The chart above summarizes the increase in the total jail population from 1970 to 2018"}
+plot_jail_pop_for_us()
+```
+ 
 
-[TODO ... other sections ... See Canvas for details]
+  "To what extent has the prison population increased over time". The trend here answers this question, there has been an exponential increase in incarcerated people in America since 1970, starting in the mid-80's. This statistic holds various implications as to how and why incarceration rates have increased. That being said, it is clearly seen that the prison population has increased exponentially over time, tripling since 1970. 
 
-_All the very best with your work!_
+## Total Population Trends by State
+```{r, echo=FALSE, message=FALSE, results='hide', fig.cap = "This chart summarizes increase in Jail Population by State in the U.S. from 1970 to 2018" }
+  plot_jail_pop_by_states(c("WA", "AL", "CA", "KY"))
+```
 
+ An additional question not mentioned in past sections that is answered by this chart is "How does states with larger populations compare to states with smaller populations in Jail Population increase?" The states identified in this chart are Alabama, California, Kentucky, and Washington. Here the trend is clear that states with larger populations(such as California) observe an even larger increase in jail population. That being said, the other states are still steadily growing in jail population throughout the years. The reason these states were chosen was to compare states with smaller populations to a state with a very large population(such as California). 
+ 
+## Patterns of Inequality 
+```{r, echo=FALSE, fig.cap = " A bar graph showing the jailed population per ethnic group(left) compared to the total population per ethnic group(right)"}
+  plot_comparison()
+```
+
+  "To what extent is the white jailed population disproportionate to the white total population compared to other ethnicities". The chart above displays a clear pattern of inequality. Despite the incredible difference in total population between whites and the other ethnic groups, the amount of jailed population among the groups are relatively the same. This pattern of inequality describes how disproportionate the percentage of jailed population is for white people, when compared to minority communities. 
+
+## Patterns of Inequality Based on Geographic Location
+```{r, echo=FALSE, message=FALSE, fig.cap = "A map that shows states that have incarcerated over 1 percent of the Black population since 1995"}
+plot_map() 
+```
+  
+  "To what extent does ethnicity play in the percentage of an ethnic groups population that has been incarcerated". The figure above is an example of racial inequality in the U.S. It is made very visible of the over incarceration of black people in the U.S. This map does not just show the states where over 1 percent of the black population has been incarcerated, but also the white population. The thing is however, there are no such states. This is a clear example of how not being part of the majority ethnicity(white) increases the percentage of an ethnic groups incarcerateed population. 
